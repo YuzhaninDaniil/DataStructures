@@ -15,7 +15,7 @@ private:
 	const int _growthFactor = 2;
 
 	//! \brief Вспомогательная функция для расширения массива.
-	void _resize(int newCapacity);
+	void Resize(int newCapacity);
 public:
 	//! \brief Конструктор по умолчанию.
 	DynamicArray();
