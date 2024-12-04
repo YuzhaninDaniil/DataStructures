@@ -48,7 +48,7 @@ void DynamicArray::Resize(int newCapacity)
 
 // Добавляет элемент в массив.
 void DynamicArray::AddElement(int index, int value)
-{
+{	
 	if (index < 0 || index > _size)
 	{
 		cerr << "Invalid index." << endl;

@@ -66,34 +66,38 @@ void QueueStack::Delete()
 /// </summary>
 void QueueStack::Print() {
     std::cout << "Вывод очереди: ";
-    // Создаем временные стеки для вывода.
-    Stack tempStack1(_stack1.GetSize());
-    Stack tempStack2(_stack2.GetSize());
 
+    // Создаем временные стеки для вывода.
+    Stack tempStack2(_stack2.GetSize());
+    Stack tempStack1(_stack1.GetSize());
+
+    // Переносим все элементы из _stack2 во временный стек для отображения.
     while (!_stack2.IsEmpty())
     {
         int value = _stack2.Pop();
-        cout << value << " ";
+        std::cout << value << " "; // Печатаем элементы в порядке FIFO.
         tempStack2.Push(value); // Сохраняем элементы обратно.
     }
 
-    // Теперь показываем элементы из первого стека, сохраняя их в временном.
+    // Теперь п печатаем элементы из _stack1 в обратном порядке, так как они добавлены позднее.
     while (!_stack1.IsEmpty())
     {
         int value = _stack1.Pop();
-        cout << value << " ";
-        tempStack1.Push(value);
+        std::cout << value << " "; // Продолжаем печатать элементы в порядке добавления.
+        tempStack1.Push(value); // Сохраняем элементы обратно.
     }
 
-    // Возвращаем все элементы обратно.
+    // Возвращаем все элементы обратно в _stack2 (так как они должны быть извлечены первым).
     while (!tempStack2.IsEmpty())
     {
         _stack2.Push(tempStack2.Pop());
     }
+
+    // Возвращаем элементы обратно в _stack1.
     while (!tempStack1.IsEmpty())
     {
         _stack1.Push(tempStack1.Pop());
     }
 
-    cout << std::endl;
+    std::cout << std::endl;
 }

@@ -25,6 +25,11 @@ private:
     /// </summary>
     int _top;
 
+    /// <summary>
+    /// Фактор роста.
+    /// </summary>
+    int _growthfactor = 2;
+
 public:
     /// <summary>
     /// Конструктор по умолчанию.
@@ -76,6 +81,12 @@ public:
     /// Вывод всех элементов очереди.
     /// </summary>
     void Print();
+
+    /// <summary>
+    /// Изменяет размер стека.
+    /// </summary>
+    /// <param name="newSize"></param>
+    void Resize(int newSize);
 
     /// <summary>
     /// Освобождение памяти стека.

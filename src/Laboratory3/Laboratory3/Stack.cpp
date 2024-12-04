@@ -30,7 +30,7 @@ void Stack::Push(int data)
 {
     if (_top >= _bufferSize - 1)
     {
-        throw overflow_error("Стек переполнен, невозможно добавить элемент.");
+        Resize(_bufferSize * _growthfactor);
     }
     _buffer[++_top] = data;
 }
@@ -45,6 +45,12 @@ int Stack::Pop()
     {
         throw underflow_error("Стек пуст, невозможно извлечь элемент.");
     }
+
+    if (_top < _bufferSize / 4 && _bufferSize > 1)
+    {
+        Resize(_bufferSize / _growthfactor); // Уменьшаем размер стека
+    }
+
     return _buffer[_top--];
 }
 
@@ -82,16 +88,32 @@ void Stack::Print()
 {
     if (IsEmpty())
     {
-        cout << "Стек пуст." << std::endl;
+        cout << "Стек пуст." << endl;
         return;
     }
 
-    cout << "Вывод стека: ";
-    for (int i = _top; i >= 0; --i)
+    cout << "Вывод стека: " << endl;
+    for (int i = 0; i <= _top; i++) // меняем от 0 до _top
     {
-        cout << _buffer[i] << " ";
+        cout << _buffer[i] << " "; // выводим элементы в порядке добавления
     }
     cout << endl;
+}
+
+/// <summary>
+/// Меняет размер стека.
+/// </summary>
+/// <param name="newSize"></param>
+void Stack::Resize(int newSize)
+{
+    int* newBuffer = new int[newSize];
+    for (int i = 0; i <= _top; ++i)
+    {
+        newBuffer[i] = _buffer[i]; 
+    }
+    delete[] _buffer;
+    _buffer = newBuffer;
+    _bufferSize = newSize;
 }
 
 /// <summary>
