@@ -23,13 +23,18 @@ RingBuffer::~RingBuffer()
 /// <param name="data"></param>
 void RingBuffer::Add(int data)
 {
+    _buffer[_head] = data; // Записываем данные в текущую позицию головы
+    _head = (_head + 1) % _bufferSize; // Сдвигаем голову
+
+    // Если буфер был полон, сдвигаем хвост, чтобы перезаписать старый элемент
     if (IsFull())
     {
-        throw overflow_error("Кольцевой буфер переполнен, невозможно добавить элемент.");
+        _tail = (_tail + 1) % _bufferSize; // Сдвигаем хвост, чтобы перезаписать старый элемент
     }
-    _buffer[_head] = data;
-    _head = (_head + 1) % _bufferSize;
-    _currentSize++;
+    else
+    {
+        _currentSize++; // Увеличиваем текущий размер только если буфер не был полон
+    }
 }
 
 /// <summary>
