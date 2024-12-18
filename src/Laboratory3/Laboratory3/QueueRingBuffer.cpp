@@ -20,6 +20,10 @@ QueueRingBuffer::~QueueRingBuffer()
 /// <param name="data"></param>
 void QueueRingBuffer::Enqueue(int data)
 {
+    if (_ringBuffer.FreeSpace() == 1)
+    {
+        _ringBuffer.Resize();
+    }
     _ringBuffer.Add(data);
 }
 

@@ -28,11 +28,8 @@ Stack::~Stack()
 /// <param name="data"></param>
 void Stack::Push(int data)
 {
-    if (_top >= _bufferSize - 1)
-    {
-        Resize(_bufferSize * _growthfactor);
-    }
     _buffer[++_top] = data;
+    _bufferSize++;
 }
 
 /// <summary>
@@ -46,10 +43,7 @@ int Stack::Pop()
         throw underflow_error("Стек пуст, невозможно извлечь элемент.");
     }
 
-    if (_top < _bufferSize / 4 && _bufferSize > 1)
-    {
-        Resize(_bufferSize / _growthfactor); // Уменьшаем размер стека
-    }
+    _bufferSize--;
 
     return _buffer[_top--];
 }
@@ -98,22 +92,6 @@ void Stack::Print()
         cout << _buffer[i] << " "; // выводим элементы в порядке добавления
     }
     cout << endl;
-}
-
-/// <summary>
-/// Меняет размер стека.
-/// </summary>
-/// <param name="newSize"></param>
-void Stack::Resize(int newSize)
-{
-    int* newBuffer = new int[newSize];
-    for (int i = 0; i <= _top; ++i)
-    {
-        newBuffer[i] = _buffer[i]; 
-    }
-    delete[] _buffer;
-    _buffer = newBuffer;
-    _bufferSize = newSize;
 }
 
 /// <summary>

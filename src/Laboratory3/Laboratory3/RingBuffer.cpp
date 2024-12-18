@@ -100,6 +100,23 @@ void RingBuffer::Print()
 }
 
 /// <summary>
+/// 
+/// </summary>
+/// <returns></returns>
+int RingBuffer::FreeSpace()
+{
+    return _bufferSize - _currentSize;
+}
+
+/// <summary>
+/// 
+/// </summary>
+void RingBuffer::Resize()
+{
+    _bufferSize *= _growthFactor;
+}
+
+/// <summary>
 /// Освобождение памяти кольцевого буфера.
 /// </summary>
 void RingBuffer::Delete() {

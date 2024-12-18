@@ -35,6 +35,11 @@ private:
     /// </summary>
     int _currentSize;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    int _growthFactor = 2;
+
 public:
     /// <summary>
     /// Конструктор.
@@ -59,6 +64,11 @@ public:
     /// </summary>
     /// <returns></returns>
     int Remove();
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void Resize();
 
     /// <summary>
     /// Проверка, полный ли кольцевой буфер.
@@ -87,4 +97,15 @@ public:
     /// Освобождение памяти кольцевого буфера.
     /// </summary>
     void Delete();
+
+    /// <summary>
+    /// Возвращает количества свободного места в кольцевом буфере.
+    /// </summary>
+    int FreeSpace();
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    int GetBufferSize();
 };
