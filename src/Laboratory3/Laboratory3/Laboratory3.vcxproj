@@ -134,6 +134,7 @@
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Main.h" />
     <ClInclude Include="QueueRingBuffer.h" />
     <ClInclude Include="QueueStack.h" />
     <ClInclude Include="RingBuffer.h" />

@@ -3,7 +3,7 @@
 /// <summary>
 /// Конструктор.
 /// </summary>
-/// <param name="size"></param>
+/// <param name="size">Размер очереди.</param>
 QueueStack::QueueStack(int size) : _stack1(size), _stack2(size) {}
 
 /// <summary>
@@ -11,45 +11,46 @@ QueueStack::QueueStack(int size) : _stack1(size), _stack2(size) {}
 /// </summary>
 QueueStack::~QueueStack()
 {
-    Delete();
+	Delete();
 }
 
 /// <summary>
 /// Добавление элемента в очередь.
 /// </summary>
-/// <param name="data"></param>
+/// <param name="data">Вводимые данные.</param>
 void QueueStack::Enqueue(int data)
 {
-    _stack1.Push(data); // Добавляем элемент в первый стек
+	_stack1.Push(data); // Добавляем элемент в первый стек
 }
 
 /// <summary>
 /// Извлечение элемента из очереди.
 /// </summary>
-/// <returns></returns>
+/// <returns>Возвращает первый элемент очереди.</returns>
 int QueueStack::Dequeue()
 {
-    if (_stack2.IsEmpty())
-    {
-        while (!_stack1.IsEmpty())
-        {
-            _stack2.Push(_stack1.Pop());
-        }
-    }
-    if (_stack2.IsEmpty())
-    {
-        throw underflow_error("Очередь пуста, невозможно извлечь элемент.");
-    }
-    return _stack2.Pop();
+	if (_stack2.IsEmpty())
+	{
+		while (!_stack1.IsEmpty())
+		{
+			_stack2.Push(_stack1.Pop());
+		}
+	}
+
+	if (_stack2.IsEmpty())
+	{
+		throw underflow_error("Очередь пуста, невозможно извлечь элемент.");
+	}
+	return _stack2.Pop();
 }
 
 /// <summary>
 /// Проверка, пуста ли очередь.
 /// </summary>
-/// <returns></returns>
+/// <returns>True, если очередь пуста, иначе false.</returns>
 bool QueueStack::IsEmpty()
 {
-    return _stack1.IsEmpty() && _stack2.IsEmpty();
+	return _stack1.IsEmpty() && _stack2.IsEmpty();
 }
 
 /// <summary>
@@ -57,8 +58,8 @@ bool QueueStack::IsEmpty()
 /// </summary>
 void QueueStack::Delete()
 {
-    _stack1.Delete();
-    _stack2.Delete();
+	_stack1.Delete();
+	_stack2.Delete();
 }
 
 /// <summary>
@@ -66,29 +67,28 @@ void QueueStack::Delete()
 /// </summary>
 void QueueStack::Print()
 {
-    std::cout << "Вывод очереди: ";
+	std::cout << "Вывод очереди: ";
 
-    // Создаем временный стек для хранения элементов.
-    Stack tempStack(_stack1.GetSize() + _stack2.GetSize());
+	Stack tempStack(_stack1.GetSize() + _stack2.GetSize());
 
-    // Переносим все элементы из _stack2 во временный стек для отображения.
-    while (!_stack2.IsEmpty()) {
-        int value = _stack2.Pop();
-        std::cout << value << " "; // Печатаем элементы в порядке FIFO.
-        tempStack.Push(value);      // Сохраняем элементы обратно.
-    }
+	while (!_stack2.IsEmpty())
+	{
+		int value = _stack2.Pop();
+		std::cout << value << " ";
+		tempStack.Push(value);
+	}
 
-    // Теперь печатаем элементы из _stack1 в порядке добавления.
-    while (!_stack1.IsEmpty()) {
-        int value = _stack1.Pop();
-        std::cout << value << " "; // Продолжаем печатать элементы в порядке добавления.
-        tempStack.Push(value);      // Сохраняем элементы обратно.
-    }
+	while (!_stack1.IsEmpty())
+	{
+		int value = _stack1.Pop();
+		std::cout << value << " ";
+		tempStack.Push(value);
+	}
 
-    // Возвращаем все элементы обратно в _stack2 (так как они должны быть извлечены первыми).
-    while (!tempStack.IsEmpty()) {
-        _stack2.Push(tempStack.Pop());
-    }
+	while (!tempStack.IsEmpty())
+	{
+		_stack2.Push(tempStack.Pop());
+	}
 
-    std::cout << std::endl;
+	std::cout << std::endl;
 }

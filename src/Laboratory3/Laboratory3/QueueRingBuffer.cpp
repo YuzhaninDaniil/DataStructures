@@ -11,46 +11,46 @@ QueueRingBuffer::QueueRingBuffer(int size) : _ringBuffer(size) {}
 /// </summary>
 QueueRingBuffer::~QueueRingBuffer()
 {
-    Delete(); // Освобождение памяти
+	Delete();
 }
 
 /// <summary>
 /// Добавление элемента в очередь.
 /// </summary>
-/// <param name="data"></param>
+/// <param name="data">Добавляемый в очередь элемент.</param>
 void QueueRingBuffer::Enqueue(int data)
 {
-    if (_ringBuffer.FreeSpace() == 1)
-    {
-        _ringBuffer.Resize();
-    }
-    _ringBuffer.Add(data);
+	if (_ringBuffer.FreeSpace() == 1)
+	{
+		_ringBuffer.Resize();
+	}
+	_ringBuffer.Add(data);
 }
 
 /// <summary>
 /// Извлечение элемента из очереди.
 /// </summary>
-/// <returns></returns>
+/// <returns>Возвращает последний элемент кольцевого буфера.</returns>
 int QueueRingBuffer::Dequeue()
 {
-    return _ringBuffer.Remove();
+	return _ringBuffer.Remove();
 }
 
 /// <summary>
 /// Проверка, пуста ли очередь.
 /// </summary>
-/// <returns></returns>
+/// <returns>True, еесли очередь пуста, иначе false.</returns>
 bool QueueRingBuffer::IsEmpty()
 {
-    return _ringBuffer.IsEmpty();
+	return _ringBuffer.IsEmpty();
 }
 
 /// <summary>
 /// Метод для вывода всех элементов очереди.
 /// </summary>
 void QueueRingBuffer::Print() {
-    cout << "Вывод очереди: ";
-    _ringBuffer.Print();
+	cout << "Вывод очереди: ";
+	_ringBuffer.Print();
 }
 
 /// <summary>
@@ -58,5 +58,5 @@ void QueueRingBuffer::Print() {
 /// </summary>
 void QueueRingBuffer::Delete()
 {
-    _ringBuffer.Delete();
+	_ringBuffer.Delete();
 }

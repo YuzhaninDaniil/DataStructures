@@ -8,10 +8,10 @@ Stack::Stack() : _buffer(nullptr), _bufferSize(0), _top(-1) {}
 /// <summary>
 /// Конструктор с заданным размером.
 /// </summary>
-/// <param name="size"></param>
+/// <param name="size">Размер, с которым будет создан стек.</param>
 Stack::Stack(int size) : _bufferSize(size), _top(-1)
 {
-    _buffer = new int[size];
+	_buffer = new int[size];
 }
 
 /// <summary>
@@ -19,79 +19,75 @@ Stack::Stack(int size) : _bufferSize(size), _top(-1)
 /// </summary>
 Stack::~Stack()
 {
-    Delete();
+	Delete();
 }
 
-/// <summary>
-/// Добавление элемента в стек/
-/// </summary>
-/// <param name="data"></param>
 void Stack::Push(int data)
 {
-    _buffer[++_top] = data;
-    _bufferSize++;
+	_buffer[++_top] = data;
+	_bufferSize++;
 }
 
 /// <summary>
 /// Извлечение элемента из стека.
 /// </summary>
-/// <returns></returns>
+/// <returns>Указатель на стек.</returns>
 int Stack::Pop()
 {
-    if (IsEmpty())
-    {
-        throw underflow_error("Стек пуст, невозможно извлечь элемент.");
-    }
+	if (IsEmpty())
+	{
+		throw underflow_error("Стек пуст, невозможно извлечь элемент.");
+	}
 
-    _bufferSize--;
+	_bufferSize--;
 
-    return _buffer[_top--];
+	return _buffer[_top--];
 }
 
 /// <summary>
 /// Проверка, пуст ли стек.
 /// </summary>
-/// <returns></returns>
+/// <returns>True, если индекс последнего элемента = -1, иначе false.</returns>
 bool Stack::IsEmpty()
 {
-    return _top == -1;
+	return _top == -1;
 }
 
 /// <summary>
 /// Получение размера стека.
 /// </summary>
-/// <returns></returns>
+/// <returns>Возвращает индекс последнего элемента.</returns>
 int Stack::GetSize()
 {
-    return _top + 1;
+	return _top + 1;
 }
 
 /// <summary>
 /// Получение вместимости стека.
 /// </summary>
-/// <returns></returns>
+/// <returns>Вместимость буфера.</returns>
 int Stack::GetCapacity()
 {
-    return _bufferSize;
+	return _bufferSize;
 }
 
 /// <summary>
-/// Вывод всех элементов очереди.
+/// Выводит на консоль стек.
 /// </summary>
 void Stack::Print()
 {
-    if (IsEmpty())
-    {
-        cout << "Стек пуст." << endl;
-        return;
-    }
+	if (IsEmpty())
+	{
+		cout << "???? ????." << endl;
+		return;
+	}
 
-    cout << "Вывод стека: " << endl;
-    for (int i = 0; i <= _top; i++) // меняем от 0 до _top
-    {
-        cout << _buffer[i] << " "; // выводим элементы в порядке добавления
-    }
-    cout << endl;
+	cout << "????? ?????: " << endl;
+	for (int i = 0; i <= _top; i++)
+	{
+		cout << _buffer[i] << " ";
+	}
+	cout << endl;
 }
 
 /// <summary>
@@ -99,8 +95,8 @@ void Stack::Print()
 /// </summary>
 void Stack::Delete()
 {
-    delete[] _buffer;
-    _buffer = nullptr;
-    _bufferSize = 0;
-    _top = -1;
+	delete[] _buffer;
+	_buffer = nullptr;
+	_bufferSize = 0;
+	_top = -1;
 }
