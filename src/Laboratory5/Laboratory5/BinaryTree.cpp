@@ -9,7 +9,6 @@ void Insert(BinaryTreeNode*& node, int value)
 	if (node == nullptr)
 	{
 		node = new BinaryTreeNode(value);
-
 	}
 
 	else if (value < node->Data)

@@ -13,13 +13,13 @@
 using namespace std;
 
 /// <summary>
-/// Валидация ввода числа.
+/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.
 /// </summary>
-/// <returns>Число, введённое пользователем.</returns>
+/// <returns>пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.</returns>
 static int CheckData();
 
 /// <summary>
-/// Печать бинарного дерева.
+/// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
 /// </summary>
 void PrintBinaryTree(
 	BinaryTreeNode const* node, bool high, vector<string> const& lpref,
@@ -29,7 +29,7 @@ void PrintBinaryTree(
 );
 
 /// <summary>
-/// Печать декартова дерева с учетом приоритета.
+/// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 /// </summary>
 void PrintTreap(
 	TreapNode const* node, bool high, vector<string> const& lpref,
@@ -38,15 +38,15 @@ void PrintTreap(
 );
 
 /// <summary>
-/// Выбирает тип дерева.
+/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
 /// </summary>
-/// <param name="action">Номер действия.</param>
-/// <param name="flag">Флаг.</param>
+/// <param name="action">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.</param>
+/// <param name="flag">пїЅпїЅпїЅпїЅ.</param>
 void SelectAction(int& action, bool& flag);
 
 /// <summary>
-/// Точка входа в программу.
+/// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 /// </summary>
-/// <returns>Число.</returns>
+/// <returns>пїЅпїЅпїЅпїЅпїЅ.</returns>
 int main();
 
