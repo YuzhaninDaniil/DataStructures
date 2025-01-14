@@ -98,7 +98,7 @@ public:
 	/// </summary>
 	/// <param name="key">����.</param>
 	/// <returns>������� ��������.</returns>
-	string Find(const string& key);
+	 string Find(const string& key);
 
 	/// <summary>
 	/// ���������� ������ �������.
