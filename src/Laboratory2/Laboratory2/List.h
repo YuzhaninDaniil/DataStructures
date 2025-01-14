@@ -99,13 +99,13 @@ public:
     {
         if (node == nullptr)
         {
-            Add(value, !after); // if node is null, add to the opposite end
+            Add(value, !after);
             return;
         }
 
         if (node == (after ? tail : head))
         {
-            Add(value, !after); // add to the opposite end if at the boundary
+            Add(value, !after);
             return;
         }
 
@@ -256,12 +256,12 @@ public:
     /// <param name="operationName">Название операции для вывода.</param>
     /// <returns>Время выполнения операции в секундах.</returns>
     template<typename F>
-    double Benchmark(F operation, int size, const std::string& operationName)
+    double Benchmark(F operation, int size, const string& operationName)
     {
-        auto start = std::chrono::steady_clock::now();
+        auto start = chrono::steady_clock::now();
         operation(size);
-        auto end = std::chrono::steady_clock::now();
-        std::chrono::duration<double> elapsed = end - start;
+        auto end = chrono::steady_clock::now();
+        chrono::duration<double> elapsed = end - start;
         return elapsed.count();
     }
 
