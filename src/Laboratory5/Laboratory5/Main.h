@@ -13,13 +13,13 @@
 using namespace std;
 
 /// <summary>
-/// ��������� ����� �����.
+/// Проверяет корректность вводимого числа.
 /// </summary>
-/// <returns>�����, �������� �������������.</returns>
+/// <returns>Число.</returns>
 static int CheckData();
 
 /// <summary>
-/// ������ ��������� ������.
+/// Выводит бинарное дерево.
 /// </summary>
 void PrintBinaryTree(
 	BinaryTreeNode const* node, bool high, vector<string> const& lpref,
@@ -29,7 +29,7 @@ void PrintBinaryTree(
 );
 
 /// <summary>
-/// ������ ��������� ������ � ������ ����������.
+/// Выводит декартово дерево.
 /// </summary>
 void PrintTreap(
 	TreapNode const* node, bool high, vector<string> const& lpref,
@@ -38,15 +38,15 @@ void PrintTreap(
 );
 
 /// <summary>
-/// �������� ��� ������.
+/// Выбирает вид структуры.
 /// </summary>
-/// <param name="action">����� ��������.</param>
-/// <param name="flag">����.</param>
+/// <param name="action">Операция.</param>
+/// <param name="flag">Флаг.</param>
 void SelectAction(int& action, bool& flag);
 
 /// <summary>
-/// ����� ����� � ���������.
+/// Точка входа в программу.
 /// </summary>
-/// <returns>�����.</returns>
+/// <returns>Число.</returns>
 int main();
 
