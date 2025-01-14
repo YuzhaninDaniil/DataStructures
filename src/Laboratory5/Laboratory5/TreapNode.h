@@ -12,7 +12,7 @@ struct TreapNode
 	int Key;
 
 	/// <summary>
-	/// Приоритет узла.
+	/// Приоритет  узла.
 	/// </summary>
 	int Priority;
 
