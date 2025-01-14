@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// TODO: Иерархия путей в решении не совпадает с проводником
+
 int main()
 {
 	setlocale(LC_ALL, "ru");
