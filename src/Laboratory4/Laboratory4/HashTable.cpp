@@ -88,7 +88,7 @@ void HashTable::Insert(const std::string& key, const std::string& value)
 	_table[index] = newNode;
 	_count++;
 
-	//����� ���������� ��������� ���-�������/������ >= ����. => �����������.
+	//Если количество элементов хеш-таблицы >= вместимости -> расширяемся.
 	if (static_cast<double>(_count) / _size >= _maxLoadFactor)
 	{
 		Rehash();
