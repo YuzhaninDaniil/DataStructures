@@ -23,7 +23,7 @@ void PrintTable(const Dictionary& dict);
 void PrintDictionary(const Dictionary& dict);
 
 /// <summary>
-/// Точка входа в программу.
+/// Точка входа в  программу.
 /// </summary>
 /// <returns>Число.</returns>
 int main();
