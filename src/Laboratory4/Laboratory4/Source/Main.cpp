@@ -1,4 +1,4 @@
-﻿#include "../Header/Dictionary.h"
+﻿#include "../Header/Main.h"
 #include <iostream>
 #include <string>
 
