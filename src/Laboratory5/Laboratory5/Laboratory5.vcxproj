@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\BinaryTree.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Treap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\BinaryTree.h" />
+    <ClInclude Include="Header\BinaryTreeNode.h" />
+    <ClInclude Include="Header\Main.h" />
+    <ClInclude Include="Header\Treap.h" />
+    <ClInclude Include="Header\TreapNode.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,18 +138,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="BinaryTree.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Treap.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BinaryTree.h" />
-    <ClInclude Include="BinaryTreeNode.h" />
-    <ClInclude Include="Main.h" />
-    <ClInclude Include="TreapNode.h" />
-    <ClInclude Include="Treap.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

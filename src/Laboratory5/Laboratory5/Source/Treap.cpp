@@ -1,4 +1,4 @@
-#include "Treap.h"
+#include "../Header/Treap.h"
 
 void Split(TreapNode* node, int key, TreapNode*& leftNode, TreapNode*& rightNode)
 {
