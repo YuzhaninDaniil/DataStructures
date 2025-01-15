@@ -8,13 +8,15 @@ void Insert(BinaryTreeNode*& node, int value)
 {
 	if (node == nullptr)
 	{
+		// Создаем новый узел, если текущий пуст.
 		node = new BinaryTreeNode(value);
 	}
-
+	// Если значение меньше, идем в левое поддерево.
 	else if (value < node->Data)
 	{
 		Insert(node->Left, value);
 	}
+	// Если значение больше или равно, идем в правое поддерево.
 	else
 	{
 		Insert(node->Right, value);
